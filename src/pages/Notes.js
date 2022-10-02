@@ -1,9 +1,6 @@
 // libs and hooks
 import { useState } from 'react';
 
-// styles
-import styles from './Notes.module.css';
-
 // components
 import FormContainer from '../components/FormContainer/FormContainer';
 import Title from '../components/Title/Title';
@@ -11,8 +8,16 @@ import FormControl from '../components/FormControl/FormControl';
 
 function Notes () {
 
-    // // informations of post it
-    // const [postIt, setPostIt] = useState([]);
+    // input title 
+    const [titleNote, setTitleNote] = useState('')
+    // const changeTitleNote = (event)=> setTitleNote(event.target.value) 
+        
+    // input description
+    const [description, setDescription] = useState('')
+    // const changeDescription = (event)=> setDescription(event.target.value) 
+
+    // informations of post it
+    const [postIt, setPostIt] = useState([]);
 
     // generate one position random
     function positionsArrayColors(min, max) {
@@ -21,22 +26,33 @@ function Notes () {
         return Math.floor(Math.random() * (max - min) + min);
     }
 
-    function receiveValuesInputs (event, noteTitle, noteDescription) {
+    function receiveValuesInputs (noteTitle, noteDescription) {
 
-        event.preventDefault();
         const notes = [];
 
-        const positionsColors = positionsArrayColors(0, 5)
+        const positionsColors = positionsArrayColors(0, 5);
         const colors = ['#B0E0E6', '#D8BFD8', '#FFE4E1', '#F0FFF0', '#FFE4C4', '#F8F8FF'];
+        notes.unshift({id: Math.random(parseFloat()).toString(), title: noteTitle, decribe: noteDescription, color: colors[positionsColors] });
+        return setPostIt(prevState => console.log([...prevState, ...notes]));
     }
+
+    function submitForm (event) {
+
+        event.preventDefault();
   
+    }
+
     // page
     return (
         <>
-            <FormContainer>
+            <FormContainer onSubmit={submitForm} >
                 <Title 
                 text="Write here all your tasks, goals, concerns and anything else you want! "/>
-                <FormControl>
+                <FormControl 
+                changeTitle={setTitleNote}
+                changeDescription={setDescription}
+                inputTitle={titleNote}
+                inputDescription={description}>
                 </FormControl>
             </FormContainer>
         </>

@@ -1,5 +1,4 @@
-// libs and hooks
-import { useState } from 'react';
+
 
 // styles
 import styles from './FormControl.module.css';
@@ -8,15 +7,7 @@ import styles from './FormControl.module.css';
 import Input from '../Input/Input';
 import Button from '../Button/Button';
 
-function FormControl ({className, children, renderChildren,}) {
-
-    // input title 
-     const [titleNote, setTitleNote] = useState('')
-    const changeTitleNote = (event)=> setTitleNote(event.target.value) 
-    
-    // input description
-    const [description, setDescription] = useState('')
-    const changeDescription = (event)=> setDescription(event.target.value) 
+function FormControl ({className, children, renderChildren, inputTitle, inputDescription, changeTitle, changeDescription}) {
 
     // contents
     const arrayChildrens = [];
@@ -24,18 +15,23 @@ function FormControl ({className, children, renderChildren,}) {
 
     // conditional for render contents
     if (renderChildren) {
+        arrayChildrens.push(children)
 
-     arrayChildrens.push(children)
     } else {
 
         arrayInputs.push(<>  <Input
             placeholder="Title of your note"
-            onChange={(event)=> changeTitleNote(event)}
-            value={titleNote}/>
+            onChange={(event)=> changeTitle(event.target.value)}
+            value={inputTitle}/>
             <textarea
-            className={styles.description}
-            value={description}
-            onChange={(event)=> changeDescription(event)}
+            style={{width: '50%',
+                height: '100px',
+                border: 'none',
+                outline: 'none',
+                borderRadius: '10px',
+                padding: '10px'}}
+            value={inputDescription}
+            onChange={(event)=> changeDescription(event.target.value)}
             placeholder="Describe your note"></textarea>
             <Button title="Insert"/>
         </>)
