@@ -1,8 +1,8 @@
 import styles from './Note.module.css';
 
-function Note ({style}) {
+function Note ({style, children}) {
 
-    return <div clasName={styles.note} style={style}></div>
+    return <div className={styles.note} style={style}>{children}</div>
 }
 
 export default Note;

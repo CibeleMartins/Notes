@@ -5,16 +5,15 @@ import { useState } from 'react';
 import FormContainer from '../components/FormContainer/FormContainer';
 import Title from '../components/Title/Title';
 import FormControl from '../components/FormControl/FormControl';
+import Button from '../components/Button/Button'
+import NoteContainer from '../components/NoteContainer/NoteContainer';
 
 function Notes () {
 
     // input title 
-    const [titleNote, setTitleNote] = useState('')
-    // const changeTitleNote = (event)=> setTitleNote(event.target.value) 
-        
+    const [titleNote, setTitleNote] = useState('')  
     // input description
     const [description, setDescription] = useState('')
-    // const changeDescription = (event)=> setDescription(event.target.value) 
 
     // informations of post it
     const [postIt, setPostIt] = useState([]);
@@ -26,19 +25,16 @@ function Notes () {
         return Math.floor(Math.random() * (max - min) + min);
     }
 
-    function receiveValuesInputs (noteTitle, noteDescription) {
+    const submitForm = (event)=> {
+
+        event.preventDefault();
 
         const notes = [];
 
         const positionsColors = positionsArrayColors(0, 5);
         const colors = ['#B0E0E6', '#D8BFD8', '#FFE4E1', '#F0FFF0', '#FFE4C4', '#F8F8FF'];
-        notes.unshift({id: Math.random(parseFloat()).toString(), title: noteTitle, decribe: noteDescription, color: colors[positionsColors] });
-        return setPostIt(prevState => console.log([...prevState, ...notes]));
-    }
-
-    function submitForm (event) {
-
-        event.preventDefault();
+        notes.unshift({id: Math.random(parseFloat()).toString(), title: titleNote, color: colors[positionsColors]});
+        setPostIt(prevState => [...prevState, ...notes]);
   
     }
 
@@ -54,7 +50,11 @@ function Notes () {
                 inputTitle={titleNote}
                 inputDescription={description}>
                 </FormControl>
+
+                <Button title="Insert"/>
             </FormContainer>
+
+            <NoteContainer notes={postIt}/>
         </>
     )
 };
