@@ -4,7 +4,6 @@ import Note from '../Note/Note';
 // styles
 import styles from './NoteContainer.module.css';
 
-
 function NoteContainer ({className, notes}) {
 
     return <div className={`${styles.NoteContainer} || ${className}`}>

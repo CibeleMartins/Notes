@@ -33,7 +33,7 @@ function Notes () {
 
         const positionsColors = positionsArrayColors(0, 5);
         const colors = ['#B0E0E6', '#D8BFD8', '#FFE4E1', '#F0FFF0', '#FFE4C4', '#F8F8FF'];
-        notes.unshift({id: Math.random(parseFloat()).toString(), title: titleNote, color: colors[positionsColors]});
+        notes.unshift({id: Math.random(parseFloat()).toString(), title: titleNote, describe: description, color: colors[positionsColors]});
         setPostIt(prevState => [...prevState, ...notes]);
   
     }

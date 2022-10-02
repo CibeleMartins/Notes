@@ -3,13 +3,12 @@ import styles from './FormControl.module.css';
 
 // components
 import Input from '../Input/Input';
-// import Button from '../Button/Button';
 
 function FormControl ({className, children, renderChildren, inputTitle, inputDescription, changeTitle, changeDescription}) {
 
     // component
    return   <div className={`${styles.FormControl} || ${className}`}>
-                {renderChildren ? {children} : <> <Input
+                {renderChildren ? {children} : <><Input
                 placeholder="Title of your note"
                 onChange={(event)=> changeTitle(event.target.value)}
                 value={inputTitle}/>
