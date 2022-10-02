@@ -1,9 +1,9 @@
 import styles from './NoteContainer.module.css';
 
 
-function NoteContainer () {
+function NoteContainer ({children, className}) {
 
-    return <div className={styles.NoteContainer}></div>
+    return <div className={`${styles.NoteContainer} || ${className}`}>{children}</div>
 }
 
 
