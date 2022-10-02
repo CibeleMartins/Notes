@@ -1,10 +1,12 @@
+import Header from "../components/Header/Header";
 
 
 function Home () {
 
     return (
         <>
-            <h1>Here is HOME!!</h1>
+
+         <h1>here is home</h1>
         </>
     )
 };

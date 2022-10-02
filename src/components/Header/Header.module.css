@@ -1,0 +1,25 @@
+.Header {
+    width: 100%;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.Image {
+    width: 100px ;
+}
+
+.Btn {
+    width: 100px;
+    background-color: transparent;
+}
+
+.Login {
+    width: 40px;
+}
+
+.Register {
+    width: 35px;
+}
