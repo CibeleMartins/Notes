@@ -4,22 +4,25 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px;
 }
 
 .Image {
     width: 100px ;
 }
 
-.Btn {
-    width: 100px;
-    background-color: transparent;
+.Links {
+    display: flex;
+    align-items: center;
+    width: 150px;
+    justify-content: space-evenly;
 }
 
 .Login {
     width: 40px;
+    background-color: lavender;
 }
 
 .Register {
     width: 35px;
+    background-color: lavender;
 }

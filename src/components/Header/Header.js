@@ -1,9 +1,6 @@
 // styles
 import styles from './Header.module.css';
 
-// components
-import Button from '../Button/Button';
-
 // images
 import logo from '../../assets/logo.png';
 import login from '../../assets/login.svg';
@@ -20,14 +17,8 @@ function Header () {
 
             <div
             className={styles.Links}>
-                <Button
-                className={styles.Btn}>
-                    <img className={styles.Register} src={register}/>
-                </Button>
-                <Button
-                className={styles.Btn}>
-                    <img className={styles.Login} src={login}/>
-                </Button>
+                    <img alt='register' className={styles.Register} src={register}/>
+                    <img alt='login' className={styles.Login} src={login}/>
             </div>
         </header>
     )

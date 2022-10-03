@@ -1,0 +1,47 @@
+.Container {
+    min-height: 800px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+}
+
+.svgContainer {
+    margin-top: 100px;
+}
+
+.h3Animate {
+    font-size: 30px;
+    font-weight: 300;
+
+    /* height: 50px;
+    animation: blinkCursor 400ms infinite normal, typing_p 9s steps(40) 1s infinite normal; */
+}
+
+/* @keyframes blinkCursor {
+
+    from {
+  
+      border-right-color: #C4C4C4;
+    }
+  
+    to {
+      border-right-color: transparent;
+    }
+  
+  }
+  
+  @keyframes typing_p {
+  
+    from {
+      width: 0%;
+  
+    }
+  
+    to {
+      width: 90%;
+  
+  
+    }
+  
+  } */
