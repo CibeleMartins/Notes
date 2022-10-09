@@ -22,7 +22,6 @@ function Register () {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfPassword] = useState('');
 
-
     const registerUserDatabase = (event)=> {
 
         event.preventDefault();
@@ -34,28 +33,15 @@ function Register () {
         password: password,
         confirmPassword: confirmPassword
        }).then((response)=> {
-        console.log(response)
+        console.log(response);
        }).catch((error)=> {
         if (error.response) {
             console.log(error.response.data);
             console.log(error.response.status);
             console.log(error.response.headers);
           }
-       })
-
-    // const config = {
-    //     headers: {
-    //       "Access-Control-Allow-Origin": "*",
-    //       "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
-    //     }
-    //   };
-      
-    //     axios.get("https://notes-api22.herokuapp.com/", config).then((response)=> {
-    //         console.log(response)
-    //     }).catch((error)=> {
-    //         console.log(error)
-    //     });
-    }
+       });
+    };
 
     return (
         <>
