@@ -8,7 +8,7 @@ function FormControl ({className, children, renderChildren, inputTitle, inputDes
 
     // component
    return   <div className={`${styles.FormControl} || ${className}`}>
-                {renderChildren ? {children} : <><Input
+                {renderChildren ? children : <><Input
                 placeholder="Title of your note"
                 onChange={(event)=> changeTitle(event.target.value)}
                 value={inputTitle}/>
