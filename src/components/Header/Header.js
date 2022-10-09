@@ -1,3 +1,6 @@
+// libs and hooks
+import { useNavigate } from 'react-router-dom';
+
 // styles
 import styles from './Header.module.css';
 
@@ -8,17 +11,19 @@ import register from '../../assets/register.svg';
 
 function Header () {
 
+    const navigation = useNavigate();
+
     return (
         <header
         className={styles.Header}>
             <div>
-                <img alt="logo" className={styles.Image} src={logo}/>
+                <img alt="logo" onClick={()=> navigation('/')} className={styles.Image} src={logo}/>
             </div>
 
             <div
             className={styles.Links}>
-                    <img alt='register' className={styles.Register} src={register}/>
-                    <img alt='login' className={styles.Login} src={login}/>
+                    <img alt='register' onClick={()=> navigation('/register')} className={styles.Register} src={register}/>
+                    <img alt='login' onClick={()=> navigation('/login')} className={styles.Login} src={login}/>
             </div>
         </header>
     )
