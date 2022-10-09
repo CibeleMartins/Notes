@@ -1,9 +1,17 @@
+// libs e hooks
 import { useState } from 'react';
+import axios from 'axios';
+// database
+import database from '../services/database';
+
+// components
 import FormContainer from '../components/FormContainer/FormContainer';
 import FormControl from '../components/FormControl/FormControl';
 import Input from '../components/Input/Input';
 import Button from '../components/Button/Button';
 import Title from '../components/Title/Title';
+
+// styles
 import styles from './Register.module.css';
 
 function Register () {
@@ -15,9 +23,38 @@ function Register () {
     const [confirmPassword, setConfPassword] = useState('');
 
 
-    const registerUserDatabase = ()=> {
+    const registerUserDatabase = (event)=> {
 
+        event.preventDefault();
 
+        database.post('register',{
+        name: name,
+        lastName: lastName,
+        email: email,
+        password: password,
+        confirmPassword: confirmPassword
+       }).then((response)=> {
+        console.log(response)
+       }).catch((error)=> {
+        if (error.response) {
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+          }
+       })
+
+    // const config = {
+    //     headers: {
+    //       "Access-Control-Allow-Origin": "*",
+    //       "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+    //     }
+    //   };
+      
+    //     axios.get("https://notes-api22.herokuapp.com/", config).then((response)=> {
+    //         console.log(response)
+    //     }).catch((error)=> {
+    //         console.log(error)
+    //     });
     }
 
     return (
@@ -40,9 +77,11 @@ function Register () {
                     placeholder="E-mail"/>
                     <Input 
                     value={password} 
+                    type="password"
                     onChange={(event)=> setPassword(event.target.value)}
                     placeholder="Password"/>
                     <Input 
+                    type="password"
                     value={confirmPassword} 
                     onChange={(event)=> setConfPassword(event.target.value)}
                     placeholder="Confirm Password"/>
