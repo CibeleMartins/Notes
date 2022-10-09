@@ -14,9 +14,15 @@ function Register () {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfPassword] = useState('');
 
+
+    const registerUserDatabase = ()=> {
+
+
+    }
+
     return (
         <>
-            <FormContainer>
+            <FormContainer onSubmit={registerUserDatabase}>
 
                 <FormControl className={styles.removeMt} renderChildren>
                     <Title text="Register"/>
