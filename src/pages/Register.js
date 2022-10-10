@@ -1,6 +1,6 @@
 // libs e hooks
 import { useState } from 'react';
-import axios from 'axios';
+
 // database
 import database from '../services/database';
 

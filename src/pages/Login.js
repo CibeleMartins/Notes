@@ -1,5 +1,6 @@
 // libs and hooks
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // database
 import database from '../services/database';
@@ -14,10 +15,12 @@ import Title from '../components/Title/Title';
 // styles
 import styles from './Login.module.css';
 
-function Login () {
+function Login ({receiveResponse}) {
     
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const navigation = useNavigate()
 
     const login = (event)=> {
 
@@ -27,7 +30,9 @@ function Login () {
         email: email,
         password: password
        }).then((response)=> {
-        console.log(response)
+        receiveResponse(response)
+        setEmail('');
+        setPassword('');
        }).catch((error)=> {
         if (error.response) {
             console.log(error.response.data);
@@ -35,6 +40,9 @@ function Login () {
             console.log(error.response.headers);
           }
        })
+
+      
+
     }
 
     return (

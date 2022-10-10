@@ -13,9 +13,19 @@ import Header from '../components/Header/Header';
 
 function Routess() {
 
-  const location = useLocation()
-  const display = location.pathname === '/notes'
+  const RenderNotes = (response)=> {
+    
+    return <Notes data={response ? response.data.user.name : null}/>
+  }
 
+  const PrivateNotes = (response)=> {
+
+    response ? RenderNotes(response) : console.log("nao veio response");
+  }
+
+
+  const location = useLocation();
+  const display = location.pathname === '/notes';
 
     return (
       <>
@@ -23,8 +33,8 @@ function Routess() {
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/register" element={<Register/>}/>
-          <Route path="/login" element={<Login/>}/>
-          <Route path="/notes" element={<Notes/>}/>
+          <Route path="/login" element={<Login receiveResponse={PrivateNotes}/>}/>
+          <Route path="/notes" element={RenderNotes()}/>
         </Routes>
       </>
     );

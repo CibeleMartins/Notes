@@ -8,7 +8,7 @@ import FormControl from '../components/FormControl/FormControl';
 import Button from '../components/Button/Button'
 import NoteContainer from '../components/NoteContainer/NoteContainer';
 
-function Notes () {
+function Notes ({data}) {
 
     // input title 
     const [titleNote, setTitleNote] = useState('')  
@@ -43,7 +43,7 @@ function Notes () {
         <>
             <FormContainer onSubmit={submitForm} >
                 <Title 
-                text="Write here all your tasks, goals, concerns and anything else you want! "/>
+                text={`Hello ${data}`}/>
                 <FormControl 
                 changeTitle={setTitleNote}
                 changeDescription={setDescription}
